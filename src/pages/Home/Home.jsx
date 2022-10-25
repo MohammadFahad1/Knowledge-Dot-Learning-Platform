@@ -1,7 +1,9 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Course from '../Course/Course';
 import HeroSection from './HeroSection/HeroSection';
 const Home = () => {
+    const courses = useLoaderData();
     return (
         <>
             <HeroSection></HeroSection>
@@ -14,9 +16,9 @@ const Home = () => {
                     </p>
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-9'>
-                    <Course></Course>
-                    <Course></Course>
-                    <Course></Course>
+                    {
+                        courses.map(course => <Course key={course.id} course={course}></Course>)
+                    }
                 </div>
             </div>
         </>
