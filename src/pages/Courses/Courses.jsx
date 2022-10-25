@@ -3,7 +3,7 @@ import React from 'react';
 const Courses = () => {
     return (
         <>
-            <section>
+            <section className='pt-9 bg-slate-400'>
                 <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:items-start">
                         <div className="lg:sticky lg:top-4">

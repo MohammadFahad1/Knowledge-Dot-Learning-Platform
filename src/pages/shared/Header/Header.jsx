@@ -4,7 +4,7 @@ import logo from '/favicon.png';
 
 const Header = () => {
     return (
-        <div className="navbar bg-transparent fixed top-0 left-0 text-white z-50" id="navbar">
+        <div className="navbar bg-transparent fixed top-0 left-0 text-slate-700 z-50" id="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn"><NavLink to='/courses'>Courses</NavLink></a>
+                <NavLink to='/courses' className="btn">Courses</NavLink>
             </div>
         </div>
     );
