@@ -11,6 +11,17 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <script>
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("navbar").style.background = "orangered";
+      } else {
+        document.getElementById("navbar").style.background = "transparent";
+      }
+    }
+  </script>
 </body>
 
 </html>

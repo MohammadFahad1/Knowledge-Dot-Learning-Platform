@@ -8,3 +8,9 @@
   line-height: 24px;
   font-weight: 400;
 }
+
+.active {
+  background-color: transparent;
+  color: orange;
+  font-weight: 600;
+}
