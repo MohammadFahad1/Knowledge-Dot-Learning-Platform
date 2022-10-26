@@ -1,13 +1,22 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Module from './Module/Module';
+import { FaDownload } from "react-icons/fa";
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     const navigate = useNavigate();
     const { course, modules } = JSON.parse(courseDetails);
+    const options = {
+        orientation: 'portrait'
+    };
+
     return (
-        <div className='pt-14 bg-slate-400'>
+        <div className='pt-14 bg-slate-400' ref={ref}>
             <div className="mx-auto max-w-5xl px-4 py-8">
                 <section className="rounded-lg bg-gray-100 p-8">
                     <div className="grid grid-cols-1 gap-12 sm:grid-cols-3 sm:items-center">
@@ -22,11 +31,16 @@ const CourseDetails = () => {
                                 {course.description}
                             </p>
 
-                            <cite className="mt-8 inline-flex items-center not-italic">
-                                <span className="hidden h-px w-6 bg-gray-400 sm:inline-block"></span>
-                                <p className="text-sm uppercase text-gray-500 sm:ml-3">
-                                    <strong>{course.name}</strong>
-                                </p>
+                            <cite className="mt-8 inline-flex w-full items-center not-italic">
+                                <div className='flex justify-between w-full items-center'>
+                                    <p className="text-sm uppercase text-gray-500 sm:ml-3">
+                                        <span className="hidden h-px w-6 bg-gray-400 sm:inline-block"></span>
+                                        <strong>{course.name}</strong>
+                                    </p>
+                                    <Pdf targetRef={ref} options={options} scale={0.6} filename="Knowledge-dot.pdf">
+                                        {({ toPdf }) => <button className='btn btn-warning' onClick={toPdf}><FaDownload /> Download PDF</button>}
+                                    </Pdf>
+                                </div>
                             </cite>
                         </blockquote>
                     </div>
