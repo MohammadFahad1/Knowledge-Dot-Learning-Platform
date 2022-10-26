@@ -31,18 +31,19 @@ const CourseDetails = () => {
                     </div>
                 </section>
             </div>
-
             <div className="mx-5">
                 <div className="space-y-4 py-5 mx-auto" style={{ maxWidth: '900px' }}>
                     <h1 className='text-3xl font-bold bg-warning p-2'>See Course Modules</h1>
                     {
                         modules.map((module) => <Module key={module.id} module={module}></Module>)
                     }
+
+                    <div className='flex flex-col md:flex-row items-center md:justify-between'>
+                        <div></div>
+                        <button type="button" class="text-gray-900 text-2xl font-extrabold bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 font-bold">Purchase Premium</button>
+                    </div>
                 </div>
             </div>
-
-
-
         </div>
     );
 };
