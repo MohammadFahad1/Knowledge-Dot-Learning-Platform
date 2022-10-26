@@ -2,12 +2,20 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import logo from '/favicon.png';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Header = () => {
-    const { user, loading } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const signout = () => {
+        logOut()
+            .then(result => toast.success("Logout successfull"))
+            .catch(error => toast.error(error.message))
+    }
+
     return (
         <div className="navbar bg-transparent fixed top-0 left-0 text-white z-50" id="navbar">
-            <div className="navbar-start">
+            <div className="navbar-start"><Toaster></Toaster>
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -38,18 +46,16 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {
-                    loading ? '' :
+                    user?.uid ?
                         <>
-                            {
-                                user?.uid ?
-                                    <div className="avatar">
-                                        <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            <img src="https://placeimg.com/192/192/people" />
-                                        </div>
-                                    </div>
-                                    : <Link to='/login' className="btn btn-warning px-5">Login</Link>
-                            }
+                            <div className="avatar mr-4" title={user?.displayName}>
+                                <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </div>
+                            <button className='btn btn-danger' onClick={signout}>Logout</button>
                         </>
+                        : <Link to='/login' className="btn btn-warning px-5">Login</Link>
                 }
             </div>
         </div>
