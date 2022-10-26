@@ -1,9 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Module from './Module/Module';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
+    const navigate = useNavigate();
     const { course, modules } = JSON.parse(courseDetails);
     return (
         <div className='pt-14 bg-slate-400'>
@@ -40,7 +41,7 @@ const CourseDetails = () => {
 
                     <div className='flex flex-col md:flex-row items-center md:justify-between'>
                         <div></div>
-                        <button type="button" class="text-gray-900 text-2xl font-extrabold bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 rounded-lg px-5 py-2.5 text-center mr-2 mb-2">Purchase Premium</button>
+                        <button type="button" className="text-gray-900 text-2xl font-extrabold bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 rounded-lg px-5 py-2.5 text-center mr-2 mb-2" onClick={() => navigate(`/checkout/${course.id}`)}>Purchase Premium</button>
                     </div>
                 </div>
             </div>
