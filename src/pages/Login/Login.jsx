@@ -8,7 +8,7 @@ import { Toaster, toast } from 'react-hot-toast';
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
-    const { providerLogin } = useContext(AuthContext);
+    const { providerLogin, signIn } = useContext(AuthContext);
 
     const handleGoogleLogin = () => {
         providerLogin(googleProvider)
@@ -31,7 +31,13 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                toast.success("Loggin Successfull!");
+                form.reset();
+            })
+            .catch(error => toast.error(error.message))
     }
 
     return (
