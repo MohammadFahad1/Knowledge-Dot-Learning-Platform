@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import logo from '/favicon.png';
 
 const Header = () => {
+    const { user, loading } = useContext(AuthContext);
     return (
         <div className="navbar bg-transparent fixed top-0 left-0 text-white z-50" id="navbar">
             <div className="navbar-start">
@@ -35,7 +37,20 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn btn-warning px-5">Login</Link>
+                {
+                    loading ? '' :
+                        <>
+                            {
+                                user?.uid ?
+                                    <div className="avatar">
+                                        <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                            <img src="https://placeimg.com/192/192/people" />
+                                        </div>
+                                    </div>
+                                    : <Link to='/login' className="btn btn-warning px-5">Login</Link>
+                            }
+                        </>
+                }
             </div>
         </div>
     );

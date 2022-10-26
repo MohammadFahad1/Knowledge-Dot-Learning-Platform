@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import { FaGooglePlus, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../../contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Login = () => {
+    const googleProvider = new GoogleAuthProvider();
+    const { providerLogin } = useContext(AuthContext);
+
+    const handleGoogleLogin = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                return toast.success('Successfully Logged In!');
+            })
+            .catch(error => {
+                return toast.error(error.message)
+            })
+    }
+
     return (
         <div className='bg-slate-400 py-10 pb-40'>
             <section className="h-screen">
+                <Toaster></Toaster>
                 <div className="px-6 h-full text-gray-800">
                     <div
                         className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
@@ -28,6 +45,7 @@ const Login = () => {
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
                                         className="btn btn-warning" title="Sign In with Google"
+                                        onClick={() => handleGoogleLogin()}
                                     >
                                         <FaGooglePlus className='text-3xl'></FaGooglePlus> <span className='ml-2'>Google</span>
                                     </button>
