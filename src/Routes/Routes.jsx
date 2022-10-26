@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     {
         path: '/', element: <Main></Main>, children: [
             { path: '/', element: <Home></Home>, loader: () => fetch('http://localhost:5000/courses') },
-            { path: '/courses', element: <Courses></Courses> },
+            { path: '/courses', element: <Courses></Courses>, loader: () => fetch('http://localhost:5000/courses') },
             { path: '/course/:id', element: <CourseDetails></CourseDetails>, loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`) }
         ]
     }

@@ -32,9 +32,9 @@ const CourseDetails = () => {
                 </section>
             </div>
 
-
             <div className="mx-5">
                 <div className="space-y-4 py-5 mx-auto" style={{ maxWidth: '900px' }}>
+                    <h1 className='text-3xl font-bold bg-warning p-2'>See Course Modules</h1>
                     {
                         modules.map((module) => <Module key={module.id} module={module}></Module>)
                     }
