@@ -1,14 +1,14 @@
-import react from 'react';
+import React from 'react';
 
-const Blog = () => {
+const FAQ = () => {
     return (
         <div className='bg-slate-400 py-32'>
-            <h1 className='text-3xl font-bold text-center text-white bg-orange-500 py-6 '>All Question and Answering Part</h1>
+            <h1 className='text-3xl font-bold text-center text-white bg-orange-500 py-5 px-3'>Frequently Asked Questions</h1>
             <div className="space-y-4 mx-5 mt-12">
                 <details className="group border-l-4 border-green-500 bg-gray-50 p-6" open>
                     <summary className="flex cursor-pointer items-center justify-between">
                         <h5 className="text-lg font-medium text-gray-900">
-                            what is cors?
+                            what is Knowledge-dot ?
                         </h5>
 
                         <span
@@ -30,14 +30,14 @@ const Blog = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A web page may freely embed cross-origin images, stylesheets, scripts, iframes, and videos
+                        Knowledge-dot is a free learning website where you can learn different Programming Languages for free.
                     </p>
                 </details>
 
                 <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
                     <summary className="flex cursor-pointer items-center justify-between">
                         <h5 className="text-lg font-medium text-gray-900">
-                            Why are you using firebase? What other options do you have to implement authentication?
+                            How much money do you charge ?
                         </h5>
 
                         <span
@@ -59,16 +59,14 @@ const Blog = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience.
-
-                        Usually, authentication by a server entails the use of a user name and password. Other ways to authenticate can be through cards, retina scans, voice recognition, and fingerprints.
+                        It is a free website, and all our courses are also completely for free.
                     </p>
                 </details>
 
                 <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
                     <summary className="flex cursor-pointer items-center justify-between">
                         <h5 className="text-lg font-medium text-gray-900">
-                            How does the private route work?
+                            How long it will take to learn a programming language ?
                         </h5>
 
                         <span
@@ -90,13 +88,13 @@ const Blog = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in)
+                        It all depends on you how much time & effort you are giving behind the language.
                     </p>
                 </details>
                 <details className="group border-l-4 border-green-500 bg-gray-50 p-6">
                     <summary className="flex cursor-pointer items-center justify-between">
                         <h5 className="text-lg font-medium text-gray-900">
-                            What is Node? How does Node work?
+                            Can I learn Programming ?
                         </h5>
 
                         <span
@@ -118,13 +116,12 @@ const Blog = () => {
                     </summary>
 
                     <p className="mt-4 leading-relaxed text-gray-700">
-                        Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on a JavaScript Engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications.
-                        It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
+                        ofcourse you can learn programming, it's all free in Knowledge dot. you can follow our modules be a successfull porgrammer.
                     </p>
                 </details>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Blog;
+export default FAQ;

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -48,7 +48,10 @@ const CheckOut = () => {
                             <input className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_name" name="cus_name" type="text" required="" placeholder="Card Number MM/YY CVC" aria-label="Name" />
                         </div>
                         <div className="mt-4">
-                            <button className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Pay & Continue $3.00</button>
+                            <button className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" onClick={(e) => {
+                                e.preventDefault();
+                                toast.success(`Congratulations, you purchased the premium course for ${name}`)
+                            }}>Purchase the Premium Course</button>
                         </div>
                     </form>
                 </div>

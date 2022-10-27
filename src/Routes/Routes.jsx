@@ -4,6 +4,7 @@ import Blog from "../pages/Blog/Blog";
 import CheckOut from "../pages/CheckOut/CheckOut";
 import CourseDetails from "../pages/CourseDetails/CourseDetails";
 import Courses from "../pages/Courses/Courses";
+import FAQ from "../pages/FAQ/FAQ";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import NotFound from "../pages/NotFound/NotFound";
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
             { path: '/login', element: <Login></Login> },
             { path: '/register', element: <Register></Register> },
             { path: '/blog', element: <Blog></Blog> },
+            { path: '/faq', element: <FAQ></FAQ> },
             { path: '/courses', element: <Courses></Courses>, loader: () => fetch('http://localhost:5000/courses') },
             { path: '/course/:id', element: <CourseDetails></CourseDetails>, loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`) },
             { path: '/checkout/:id', element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>, loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`) },

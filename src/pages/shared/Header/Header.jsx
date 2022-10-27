@@ -59,14 +59,17 @@ const Header = () => {
                 {
                     user?.uid ?
                         <>
-                            <div className="avatar mr-4" title={user?.displayName}>
+                            <div className="avatar mr-4">
                                 <button className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 tooltip tooltip-bottom" data-tip={user?.displayName} style={{ height: '47px', width: '47px' }}>
                                     <img src={user?.photoURL} style={{ height: '45px', width: '45px' }} className="rounded-full" />
                                 </button>
                             </div>
-                            <button className='btn btn-danger' onClick={signout}>Logout</button>
+                            <button className='btn btn-danger' onClick={signout}>Sign Out</button>
                         </>
-                        : <Link to='/login' className="btn btn-warning px-5">Login</Link>
+                        : <>
+                            <Link to='/login' className="btn btn-warning px-5 mr-3">Sign In</Link>
+                            <Link to='/register' className="btn btn-primary px-5">Sign Up</Link>
+                        </>
                 }
             </div>
         </div>
