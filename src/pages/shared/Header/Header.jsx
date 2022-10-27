@@ -60,8 +60,8 @@ const Header = () => {
                     user?.uid ?
                         <>
                             <div className="avatar mr-4" title={user?.displayName}>
-                                <button className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2  tooltip tooltip-bottom" data-tip={user?.displayName}>
-                                    <img src={user?.photoURL} className="rounded-full" />
+                                <button className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 tooltip tooltip-bottom" data-tip={user?.displayName} style={{ height: '47px', width: '47px' }}>
+                                    <img src={user?.photoURL} style={{ height: '45px', width: '45px' }} className="rounded-full" />
                                 </button>
                             </div>
                             <button className='btn btn-danger' onClick={signout}>Logout</button>

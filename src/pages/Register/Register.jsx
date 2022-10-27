@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, profileUpdate } = useContext(AuthContext);
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -12,13 +13,24 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        const navigate = useNavigate();
+        const location = useLocation();
+
+        const from = location?.state?.from?.pathname || '/';
+
         createUser(email, password)
             .then(result => {
-                toast.success("User Created Successfully!");
-                form.reset();
+                profileUpdate(name, photoURL)
+                    .then(res => {
+                        toast.success("User Created Successfully!");
+                        form.reset();
+                        navigate(from)
+                    })
+                    .catch(error => toast.error(error.message))
             })
             .catch(error => toast.error(error.message))
     }
+
     return (
         <div className='bg-slate-400 py-40'>
             <form class="w-full max-w-lg mx-auto" onSubmit={handleRegister}><Toaster></Toaster>
