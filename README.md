@@ -1,8 +1,8 @@
-<h2><a href="">(Front End) Visit Knowledge Dot Live Website</a></h2>
-<h2>Link: <a href="">https://fahadbd.000webhostapp.com</a></h2>
+<h2><a href="https://knowledgedot-17342.web.app/">(Front End) Visit Knowledge Dot Live Website</a></h2>
+<h2>Link: <a href="https://knowledgedot-17342.web.app/">https://knowledgedot-17342.web.app/</a></h2>
 <br>
-<h2><a href="">(Back End) Visit Server Side API for the Project</a></h2>
-<h2>Link: <a href="">https://fahadbd.000webhostapp.com</a></h2>
+<h2><a href="https://b610-lerning-platform-server-side-mohammad-fahad-mohammadfahad1.vercel.app/">(Back End) Visit Server Side API for the Project</a></h2>
+<h2>Link: <a href="https://b610-lerning-platform-server-side-mohammad-fahad-mohammadfahad1.vercel.app/">https://b610-lerning-platform-server-side-mohammad-fahad-mohammadfahad1.vercel.app/</a></h2>
 <br>
 <h1>About the Project</h1>
 <p>
