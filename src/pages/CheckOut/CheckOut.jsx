@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const CheckOut = () => {
     const course = JSON.parse(useLoaderData()).course;
     const { name, img, description } = course;
+
+    const { user } = useContext(AuthContext);
+
     return (
         <div className='bg-slate-400 py-28 '>
             <div className='bg-orange-400 px-6 py-5 my-3'>
@@ -15,11 +20,11 @@ const CheckOut = () => {
                         <p className="text-gray-800 mb-2 text-2xl font-bold">Customer information</p>
                         <div className="">
                             <label className="block text-sm text-gray-00" htmlFor="cus_name">Name</label>
-                            <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="cus_name" name="cus_name" type="text" required="" placeholder="Your Name" aria-label="Name" />
+                            <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="cus_name" name="name" type="text" required="" placeholder="Your Name" value={user?.displayName} readOnly aria-label="Name" />
                         </div>
                         <div className="mt-2">
                             <label className="block text-sm text-gray-600" htmlFor="cus_email">Email</label>
-                            <input className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="cus_email" name="cus_email" type="text" required="" placeholder="Your Email" aria-label="Email" />
+                            <input className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="cus_email" name="email" type="text" required="" placeholder="Your Email" aria-label="Email" value={user?.email} readOnly />
                         </div>
                         <div className="mt-2">
                             <label className=" block text-sm text-gray-600" htmlFor="cus_email">Address</label>
