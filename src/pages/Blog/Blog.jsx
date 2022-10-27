@@ -2,8 +2,8 @@ import react from 'react';
 
 const Blog = () => {
     return (
-        <div>
-            <h1>All Question and Answering Part</h1>
+        <div className='bg-slate-400 py-32'>
+            <h1 className='text-3xl font-bold text-center text-orange-400'>All Question and Answering Part</h1>
             <div className="space-y-4 mx-5 mt-12">
                 <details className="group border-l-4 border-green-500 bg-gray-50 p-6" open>
                     <summary className="flex cursor-pointer items-center justify-between">
