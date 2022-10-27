@@ -1,15 +1,19 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import logo from '/favicon.png';
 import { Toaster, toast } from 'react-hot-toast';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const signout = () => {
         logOut()
-            .then(result => toast.success("Logout successfull"))
+            .then(result => {
+                toast.success("Logout successfull");
+                navigate('/')
+            })
             .catch(error => toast.error(error.message))
     }
 
@@ -56,9 +60,9 @@ const Header = () => {
                     user?.uid ?
                         <>
                             <div className="avatar mr-4" title={user?.displayName}>
-                                <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={user?.photoURL} />
-                                </div>
+                                <button className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2  tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                    <img src={user?.photoURL} className="rounded-full" />
+                                </button>
                             </div>
                             <button className='btn btn-danger' onClick={signout}>Logout</button>
                         </>

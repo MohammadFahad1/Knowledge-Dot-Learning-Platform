@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaGooglePlus, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -10,10 +10,16 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
     const { providerLogin, signIn } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/';
+
     const handleGoogleLogin = () => {
         providerLogin(googleProvider)
             .then(result => {
-                return toast.success('Successfully Logged In!');
+                toast.success('Successfully Logged In!');
+                navigate(from)
             })
             .catch(error => {
                 return toast.error(error.message)
@@ -22,7 +28,10 @@ const Login = () => {
 
     const handleGithubLogin = () => {
         providerLogin(githubProvider)
-            .then(result => toast.success("Successfully Logged In!"))
+            .then(result => {
+                toast.success('Successfully Logged In!');
+                navigate(from)
+            })
             .catch(error => toast.error(error.message))
     }
 
@@ -34,7 +43,8 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                toast.success("Loggin Successfull!");
+                toast.success('Successfully Logged In!');
+                navigate(from)
                 form.reset();
             })
             .catch(error => toast.error(error.message))
